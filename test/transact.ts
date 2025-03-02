@@ -1,6 +1,12 @@
 import { Para as ParaServer, Environment, WalletType, OAuthMethod } from "@getpara/server-sdk";
 
+interface WalletResponse {
+  message: string;
+  address: string | undefined;
+   email: string;
+   walletId:string;
 
+}
 
 export async function createParaPregenWallet(email: string): Promise<any> {
   try {
@@ -16,13 +22,13 @@ export async function createParaPregenWallet(email: string): Promise<any> {
 
     const para = new ParaServer(Environment.BETA, PARA_API_KEY);
   
-    const walletExists = await para.hasPregenWallet({ pregenIdentifier: email, pregenIdentifierType: "EMAIL" });
-    if (walletExists) {
-      throw new Error("A pre-generated wallet already exists for this user. Consider using that wallet or choose a different email.");
-    }
+    // const walletExists = await para.hasPregenWallet({ pregenIdentifier: email, pregenIdentifierType: "EMAIL" });
+    // if (walletExists) {
+    //   throw new Error("A pre-generated wallet already exists for this user. Consider using that wallet or choose a different email.");
+    // }
 
-    const wallet = await para.createPregenWallet({
-      type: WalletType.SOLANA,
+    const wallet = await para.claimPregenWallets({
+    
       pregenIdentifier: email,
       pregenIdentifierType: "EMAIL",
     });
@@ -31,20 +37,19 @@ export async function createParaPregenWallet(email: string): Promise<any> {
     }
     // const recoverySecret = await para.claimPregenWallets()
    
-    const userShare = await para.getUserShare()
+
 
     return{
       message: "Pre-generated wallet created successfully.",
-      address: wallet.address,
+      address: wallet,
         email,
-        walletId:wallet.id,
-        userShare
+ 
 //  recoverySecret
     };
   } catch (error: any) {
-    throw new Error(`create pregen wallet failed ${error.message}`);
+    throw new Error(`claim pregen wallet failed ${error.message}`);
   }
 }
 
-const popo=await createParaPregenWallet("chonsdky@gmail.com")
+const popo=await createParaPregenWallet("chonky@gmail.com")
 console.log(popo)

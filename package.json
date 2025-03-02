@@ -25,9 +25,12 @@
   "license": "ISC",
   "dependencies": {
     "@getpara/server-sdk": "^1.4.3",
+    "@getpara/solana-web3.js-v1-integration": "^1.4.3",
     "@modelcontextprotocol/sdk": "^1.5.0",
-    "@uratmangun/solana-agent-kit-para": "^1.4.8",
+    "@solana/web3.js": "^1.98.0",
+    "@uratmangun/solana-agent-kit-para": "^1.4.9",
     "dotenv": "^16.4.7",
+    "solana-agent-kit": "file:../solana-agent-kit-para",
     "zod": "^3.24.2"
   },
   "devDependencies": {
