@@ -7,7 +7,7 @@
 
 A Solana Agent Kit implementation using the Model Context Protocol (MCP) for handling protocol operations on the Solana blockchain.
 ## Demo
-https://www.youtube.com/watch?v=Q3L1mrjRAPg
+https://www.youtube.com/watch?v=EjlMNldRiy8
 ## Features
 
 - Supports all actions from the Solana Agent Kit

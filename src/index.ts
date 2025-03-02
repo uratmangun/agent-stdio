@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { ACTIONS, SolanaAgentKit, startMcpServer } from "@uratmangun/solana-agent-kit-para";
+import { ACTIONS, SolanaAgentKit, startMcpServer } from "solana-agent-kit";
 import * as dotenv from "dotenv";
 
 dotenv.config();
